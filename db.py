@@ -44,6 +44,7 @@ class PromptHistory(BaseOrm):
     @classmethod
     def remove_all(cls, db_session: Session):
         db_session.query(cls).delete()
+        db_session.commit()
 
     @classmethod
     def find_by_id(cls, db_session: Session, prompt_id: int):
